@@ -1,5 +1,6 @@
 import "./styles.css";
-import Levels from "./Levels";
+import LevelUnits from "./LevelUnits";
+import LevelBar from "./LevelBar";
 
 const data = {
   buy: {
@@ -24,16 +25,28 @@ const data2 = {
 };
 
 function App() {
+  const maxValueBuy = Math.max(...data.buy.amount);
+  const totalBuy = data.buy.amount.reduce((a, b) => a + b, 0);
+  const maxValueSell = Math.max(...data.sell.amount);
+  const totalSell = data.sell.amount.reduce((a, b) => a + b, 0);
   return (
     <div className="App">
-      <h3 className="container">Levels</h3>
+      <h3 className="container">Tarjoustasot</h3>
       <div className="container">
-        <Levels 
-          alignRight 
-          secondary 
-          units={["Kpl", "Ostohinta"]} 
-          values={data.buy.amount} 
-          labels={[data.buy.amount, data.buy.price]}
+        <LevelUnits units={["Kpl", "Ostohinta"]} />
+        {data.buy.amount.map((element, index) => 
+          <LevelBar
+            alignRight
+            labels={[element, data.buy.price[index]]}
+            value={element}
+            maxValue={maxValueBuy}
+          />
+        )}
+        <LevelBar
+          alignRight
+          labels={["Yhteensä", totalBuy]}
+          value={totalBuy}
+          maxValue={totalBuy + totalSell}
         />
       </div>
     </div>
@@ -41,3 +54,13 @@ function App() {
 }
 
 export default App;
+
+
+/*         <Levels 
+          alignRight 
+          secondaryColor
+          units={["Kpl", "Ostohinta"]} 
+          values={data.buy.amount} 
+          labels={[data.buy.amount, data.buy.price]}
+          total="Yhteensä"
+        /> */
