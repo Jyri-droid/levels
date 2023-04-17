@@ -96,7 +96,7 @@ function App() {
             <LevelUnits units={["Aika", "Hinta", "Kpl"]} />
             {data.deals.amount.map((element, index) => 
               <LevelBar
-                labels={[data.deals.time[index], data.deals.price[index], element.toLocaleString("fi-FI")]}
+                labels={[data.deals.time[index], data.deals.price[index], element.toLocaleString()]}
                 value={element}
                 maxValue={totalDeals}
               />

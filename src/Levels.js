@@ -1,5 +1,5 @@
 const Levels = (props) => {
-    return <div className="levels">{props.children}</div>
+    return <table className="levels">{props.children}</table>
 }
 
 export default Levels;
