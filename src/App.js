@@ -59,14 +59,14 @@ function App() {
             {data.buy.amount.map((element, index) => 
               <LevelBar
                 alignRight
-                labels={[element.toLocaleString(), data.buy.price[index]]}
+                labels={[element.toLocaleString("fi-FI"), data.buy.price[index]]}
                 value={element}
                 maxValue={maxValueBuy}
               />
             )}
             <LevelBar
               alignRight
-              labels={[`Yhteensä ${totalBuy.toLocaleString()}`, ""]}
+              labels={[`Yhteensä ${totalBuy.toLocaleString("fi-FI")}`, ""]}
               value={totalBuy}
               maxValue={totalBuy + totalSell}
             />
@@ -76,14 +76,14 @@ function App() {
             {data.sell.amount.map((element, index) => 
               <LevelBar
                 secondaryColor
-                labels={[data.sell.price[index], element.toLocaleString()]}
+                labels={[data.sell.price[index], element.toLocaleString("fi-FI")]}
                 value={element}
                 maxValue={maxValueSell}
               />
             )}
             <LevelBar
               secondaryColor
-              labels={[`Yhteensä ${totalSell.toLocaleString()}`]}
+              labels={[`Yhteensä ${totalSell.toLocaleString("fi-FI")}`]}
               value={totalSell}
               maxValue={totalBuy + totalSell}
             />
@@ -96,7 +96,7 @@ function App() {
             <LevelUnits units={["Aika", "Hinta", "Kpl"]} />
             {data.deals.amount.map((element, index) => 
               <LevelBar
-                labels={[data.deals.time[index], data.deals.price[index], element.toLocaleString()]}
+                labels={[data.deals.time[index], data.deals.price[index], element.toLocaleString("fi-FI")]}
                 value={element}
                 maxValue={totalDeals}
               />
