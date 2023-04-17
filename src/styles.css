@@ -30,6 +30,7 @@ body {
 .levels:first-child {
   margin-right: 0.5rem;
 }
+
 .levels:last-child {
   margin-left: 0.5rem;
 }
