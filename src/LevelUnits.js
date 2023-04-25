@@ -1,7 +1,7 @@
-const LevelUnits = (props) => {
-    return <tr className="level-text-container">
-            {props.units.map((element, index) => <th className="level-text" key={`unit ${element} ${index}`}>{element}</th>)}   
-        </tr>
+const LevelsUnits = (props) => {
+    return <li className="level-text-container">
+            {props.units.map((element, index) => <div className="level-text" key={`unit ${element} ${index}`}>{element}</div>)}   
+        </li>
 }
 
-export default LevelUnits;
+export default LevelsUnits;

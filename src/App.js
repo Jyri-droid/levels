@@ -56,37 +56,37 @@ function App() {
       <div className="container">
           <Levels>
             <LevelUnits units={["Kpl", "Ostohinta"]} />
-            {data.buy.amount.map((element, index) => 
+              {data.buy.amount.map((element, index) => 
+                <LevelBar
+                  secondaryColor
+                  alignRight
+                  labels={[element.toLocaleString("fi-FI"), data.buy.price[index]]}
+                  value={element}
+                  maxValue={maxValueBuy}
+                />
+              )}
+                <LevelBar
+                  secondaryColor
+                  alignRight
+                  labels={[`Yhteensä ${totalBuy.toLocaleString("fi-FI")}`, ""]}
+                  value={totalBuy}
+                  maxValue={totalBuy + totalSell}
+                />
+            </Levels>
+            <Levels>
+              <LevelUnits units={["Myyntihinta", "Kpl"]} />
+              {data.sell.amount.map((element, index) => 
+                <LevelBar
+                  labels={[data.sell.price[index], element.toLocaleString("fi-FI")]}
+                  value={element}
+                  maxValue={maxValueSell}
+                />
+              )}
               <LevelBar
-                alignRight
-                labels={[element.toLocaleString("fi-FI"), data.buy.price[index]]}
-                value={element}
-                maxValue={maxValueBuy}
+                labels={[`Yhteensä ${totalSell.toLocaleString("fi-FI")}`]}
+                value={totalSell}
+                maxValue={totalBuy + totalSell}
               />
-            )}
-            <LevelBar
-              alignRight
-              labels={[`Yhteensä ${totalBuy.toLocaleString("fi-FI")}`, ""]}
-              value={totalBuy}
-              maxValue={totalBuy + totalSell}
-            />
-          </Levels>
-          <Levels>
-            <LevelUnits units={["Myyntihinta", "Kpl"]} />
-            {data.sell.amount.map((element, index) => 
-              <LevelBar
-                secondaryColor
-                labels={[data.sell.price[index], element.toLocaleString("fi-FI")]}
-                value={element}
-                maxValue={maxValueSell}
-              />
-            )}
-            <LevelBar
-              secondaryColor
-              labels={[`Yhteensä ${totalSell.toLocaleString("fi-FI")}`]}
-              value={totalSell}
-              maxValue={totalBuy + totalSell}
-            />
           </Levels>
       </div>
 
